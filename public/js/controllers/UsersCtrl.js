@@ -32,4 +32,8 @@ angular.module('basic-auth')
     $http.get('/api/me').success(function(data) {
       $scope.user = data;
     });
+
+    $http.get('/api/posts').success(function(data) {
+      $scope.posts = data;
+    });
   }]);
