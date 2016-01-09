@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var PostSchema = Schema({
+  created_at: {type:Date, default: new Date()}, 
   name  : String,
   email   : String,
   optin: Boolean,
