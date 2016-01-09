@@ -9,6 +9,7 @@ angular.module('basic-auth')
     });
 
     $scope.showForm = true;
+    $scope.currentDate = new Date().toString();
 
     $scope.createPost = function() {
     	$http.post('/api/posts', $scope.post)
