@@ -17,7 +17,7 @@
             <label for="optin">Does the victim want to be notified?</label>
             <input class="form-control" type="checkbox" ng-model="post.optin">
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-show="post.optin">
             <label for="email">Email</label>
             <input class="form-control" type="text" ng-model="post.email">
           </div>
@@ -38,6 +38,7 @@
           <p>Notes: {{post.notes}}</p>
         </div>
         <button class="btn btn-default" ng-click="createPost()" ng-hide="showForm" ng-show="!showSuccess">Save</button>
+        <a ng-click="showForm=true" ng-hide="showForm">Back</a>
         <p ng-show="showSuccess">This case has been sent to the investigator.</p>
         <button class="btn btn-default" ng-show="showSuccess" ng-click="anotherCase()">Add another case</button>
       </form>
