@@ -5,7 +5,7 @@ var PostSchema = Schema({
   created_at: {type:Date, default: new Date()}, 
   name  : String,
   email   : String,
-  optin: Boolean,
+  optin: {type: Boolean, default: false},
   notes: String,
   createdAt: Date,
   dropboxLink: String
