@@ -10,9 +10,12 @@ var User = require('../models/user.js')
 module.exports = function(app) {
 
   app.get('/api/me', auth.ensureAuthenticated, function(req, res) {
-    User.findById(req.userId, function(err, user) {
-      res.send(user);
-    });
+    User.findOne({ _id: req.userId })
+        .populate('posts')
+        .exec(function(err, user) {
+          console.log(user)
+          res.send(user);
+        });
   });
 
   app.put('/api/me', auth.ensureAuthenticated, function(req, res) {

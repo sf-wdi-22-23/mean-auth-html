@@ -5,8 +5,39 @@
     </div>
     <div class="col-sm-9">
       <div class="page-header">
-        <h4>Something</h4>
+        <h4>Posts</h4>
       </div>
+      <form>
+        <div ng-show="showForm">
+          <div class="form-group">
+            <label for="title">Name</label>
+            <input class="form-control" type="text" ng-model="post.name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="text" ng-model="post.email">
+          </div>
+          <div class="form-group">
+            <label for="optin">Opt-in</label>
+            <input class="form-control" type="text" ng-model="post.optin">
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea class="form-control" ng-model="post.notes"></textarea>
+          </div>
+          <button ng-click="showForm=false" ng-show="showForm">Review</button>
+        </div>
+        <div ng-hide="showForm">
+          <h3>Name: {{post.name}}</h3>
+          <p>Email: {{post.email}}</p>
+          <p>Opt-in: {{post.optin}}</p>
+          <p>Notes: {{post.notes}}</p>
+        </div>
+        <button ng-click="createPost()" ng-hide="showForm">Save</button>
+        <p ng-show="showSuccess">This case has been sent to the investigator.</p>
+        <button ng-show="showSuccess">Add another case</button>
+      </form>
+      
     </div>
   </div>
 </div>
