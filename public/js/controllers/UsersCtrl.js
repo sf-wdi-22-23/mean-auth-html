@@ -8,12 +8,11 @@ angular.module('basic-auth')
       $scope.user = data;
     });
 
-    $scope.showForm = true;
-
     $scope.createPost = function() {
     	$http.post('/api/posts', $scope.post)
     		.success(function(response) {
-                $scope.showSuccess = true;
+    			$scope.user.posts.unshift(response);
+    			$scope.post = {};
     		})
     		.error(function(response) {
     			console.log(response)
