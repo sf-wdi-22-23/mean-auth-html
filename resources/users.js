@@ -11,7 +11,6 @@ module.exports = function(app) {
 
   app.get('/api/me', auth.ensureAuthenticated, function(req, res) {
     User.findOne({ _id: req.userId })
-        .populate('posts')
         .exec(function(err, user) {
           console.log(user)
           res.send(user);

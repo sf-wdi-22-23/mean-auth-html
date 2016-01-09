@@ -27,17 +27,24 @@ angular.module('basic-auth')
     };
   }])
 
-  .controller('EditCtrl', ['$scope', '$http', '$auth', 'Auth', '$routeParams', function($scope, $http, $auth, Auth, $routeParams) {
+  .controller('EditCtrl', ['$scope', '$http', '$auth', 'Auth', '$routeParams', '$location', function($scope, $http, $auth, Auth, $routeParams, $location) {
     $http.get('/api/me').success(function(data) {
       $scope.user = data;
     });
 
     var record_id = $routeParams.id;
-    console.log(record_id);
 
-    $http.get('/api/record/'+record_id).success(function(data) {
-        $scope.record = data;
+    $http.get('/api/posts/'+record_id).success(function(data) {
+        $scope.post = data;
     });
+
+    $scope.editPost = function() {
+        delete $scope.post._id;
+        $http.post('/api/posts/'+record_id, $scope.post).success(function(data) {
+            console.log(data);
+            $location.url('/records');
+        });
+    };
   }])
 
   .controller('RecordsCtrl', ['$scope', '$http', '$auth', 'Auth', function($scope, $http, $auth, Auth) {
