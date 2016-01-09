@@ -16,7 +16,13 @@ angular.module('basic-auth')
                 $scope.showSuccess = true;
     		})
     		.error(function(response) {
-    			console.log(response)
-    		})
-    }
+    			console.log(response);
+    		});
+    };
+
+    $scope.anotherCase = function() {
+        $scope.showForm = true;
+        $scope.showSuccess = false;
+        $scope.posts = {};
+    };
   }]);

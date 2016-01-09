@@ -19,7 +19,7 @@
           </div>
           <div class="form-group">
             <label for="optin">Opt-in</label>
-            <input class="form-control" type="text" ng-model="post.optin">
+            <input class="form-control" type="checkbox" ng-model="post.optin">
           </div>
           <div class="form-group">
             <label for="notes">Notes</label>
@@ -33,9 +33,9 @@
           <p>Opt-in: {{post.optin}}</p>
           <p>Notes: {{post.notes}}</p>
         </div>
-        <button ng-click="createPost()" ng-hide="showForm">Save</button>
+        <button ng-click="createPost()" ng-hide="showForm" ng-show="!showSuccess">Save</button>
         <p ng-show="showSuccess">This case has been sent to the investigator.</p>
-        <button ng-show="showSuccess">Add another case</button>
+        <button ng-show="showSuccess" ng-click="anotherCase()">Add another case</button>
       </form>
       
     </div>
