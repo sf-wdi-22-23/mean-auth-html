@@ -10,19 +10,23 @@
       <form>
         <div ng-show="showForm">
           <div class="form-group">
-            <label for="title">Name</label>
+            <label for="title">Name of the victim</label>
             <input class="form-control" type="text" ng-model="post.name">
+          </div>
+          <div class="form-group">
+            <label for="optin">Does the victim want to be notified?</label>
+            <input class="form-control" type="checkbox" ng-model="post.optin">
           </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input class="form-control" type="text" ng-model="post.email">
           </div>
           <div class="form-group">
-            <label for="optin">Opt-in</label>
-            <input class="form-control" type="checkbox" ng-model="post.optin">
+            <label for="notes">Upload kit notes to Dropbox and paste the link here</label>
+            <input class="form-control" type="text" ng-model="post.dropboxLink">
           </div>
           <div class="form-group">
-            <label for="notes">Notes</label>
+            <label for="notes">Nurse Notes</label>
             <textarea class="form-control" ng-model="post.notes"></textarea>
           </div>
           <button ng-click="showForm=false" ng-show="showForm">Review</button>

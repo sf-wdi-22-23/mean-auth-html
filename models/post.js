@@ -5,7 +5,9 @@ var PostSchema = Schema({
   name  : String,
   email   : String,
   optin: Boolean,
-  notes: String
+  notes: String,
+  createdAt: Date,
+  dropboxLink: String
 });
 
 var Post = mongoose.model('Post', PostSchema);
