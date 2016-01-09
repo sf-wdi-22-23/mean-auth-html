@@ -26,3 +26,10 @@ angular.module('basic-auth')
         $scope.posts = {};
     };
   }]);
+
+angular.module('basic-auth')
+  .controller('RecordsCtrl', ['$scope', '$http', '$auth', 'Auth', function($scope, $http, $auth, Auth) {
+    $http.get('/api/me').success(function(data) {
+      $scope.user = data;
+    });
+  }]);
