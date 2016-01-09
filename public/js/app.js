@@ -21,6 +21,11 @@ angular.module('basic-auth', ['basic-auth.services',
         controller: 'EditCtrl'
       });
 
+      $routeProvider.when('/records', {
+        templateUrl: 'templates/records',
+        controller: 'RecordsCtrl'
+      });
+
       $routeProvider.otherwise({redirectTo: '/'});
 
       $locationProvider.html5Mode(true);

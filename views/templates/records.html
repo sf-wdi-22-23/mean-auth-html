@@ -1,0 +1,15 @@
+<table class="table">
+  <tr> 
+    <th>Name</td>
+    <th>Email</td>
+    <th>Opt-in for Notifications</td>
+    <th>Notes</td>
+  </tr>
+
+  <tr ng-repeat="(index, post) in user.posts"> 
+    <td ><a ng-href="/records/{{post._id}}/edit">{{post.name}}</a></td>
+    <td>{{post.email}}</td>
+    <td>{{post.optin}}</td>
+    <td>{{post.notes}}</td>
+  </tr>
+</table>
