@@ -2,8 +2,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var PostSchema = Schema({
-  title  : String,
-  body   : String
+  name  : String,
+  email   : String,
+  optin: Boolean,
+  notes: String
 });
 
 var Post = mongoose.model('Post', PostSchema);
