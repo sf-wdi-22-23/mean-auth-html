@@ -17,7 +17,6 @@ module.exports = function(app) {
 
   app.post('/api/posts/:id', auth.ensureAuthenticated, function (req,res) {
     Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
-      console.log(post);
       res.send(post);
     });
   });

@@ -25,12 +25,6 @@
           <textarea class="form-control" ng-model="post.notes"></textarea>
         </div>
         <button class="btn btn-default" ng-click="showForm=false" ng-show="showForm">Review</button>
-        <!-- <div ng-hide="showForm">
-          <h3>Name: {{post.name}}</h3>
-          <p>Email: {{post.email}}</p>
-          <p>Opt-in: {{post.optin}}</p>
-          <p>Notes: {{post.notes}}</p>
-        </div> -->
         <button class="btn btn-default" ng-click="editPost()">Save</button>
         <p ng-show="showSuccess">This case has been sent to the investigator.</p>
         <button class="btn btn-default" ng-show="showSuccess" ng-click="anotherCase()">Add another case</button>

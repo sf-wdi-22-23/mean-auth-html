@@ -4,6 +4,7 @@
     <div class="lead">The Easiest Way to Authenticate</div>
     <div class="btn-toolbar" ng-hide="currentUser"><a data-toggle="modal" data-target="#login-modal" class="btn btn-lg btn-info">Get Started</a></div>
     <div class="btn-toolbar" ng-show="currentUser"><a href="/create" class="btn btn-lg btn-info">+ Create new record</a></div>
+    <div class="btn-toolbar" ng-show="currentUser && currentUser.admin"><a href="/records" class="btn btn-lg btn-info">View all the records</a></div>
   </div>
 </div>
 <div class="container">
