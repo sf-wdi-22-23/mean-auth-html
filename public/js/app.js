@@ -11,9 +11,14 @@ angular.module('basic-auth', ['basic-auth.services',
         templateUrl: 'templates/splash'
       });
 
-      $routeProvider.when('/profile', {
-        templateUrl: 'templates/profile',
-        controller: 'ProfileCtrl'
+      $routeProvider.when('/create', {
+        templateUrl: 'templates/create',
+        controller: 'CreateCtrl'
+      });
+
+      $routeProvider.when('/records/:id/edit', {
+        templateUrl: 'templates/edit',
+        controller: 'EditCtrl'
       });
 
       $routeProvider.otherwise({redirectTo: '/'});

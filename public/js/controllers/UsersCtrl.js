@@ -3,7 +3,7 @@
 /* USER Controllers */
 
 angular.module('basic-auth')
-  .controller('ProfileCtrl', ['$scope', '$http', '$auth', 'Auth', function($scope, $http, $auth, Auth) {
+  .controller('CreateCtrl', ['$scope', '$http', '$auth', 'Auth', function($scope, $http, $auth, Auth) {
     $http.get('/api/me').success(function(data) {
       $scope.user = data;
     });
@@ -25,4 +25,19 @@ angular.module('basic-auth')
         $scope.showSuccess = false;
         $scope.posts = {};
     };
+  }])
+
+  .controller('EditCtrl', ['$scope', '$http', '$auth', 'Auth', '$routeParams', function($scope, $http, $auth, Auth, $routeParams) {
+    $http.get('/api/me').success(function(data) {
+      $scope.user = data;
+    });
+
+    var record_id = $routeParams.id;
+    console.log(record_id);
+
+    $http.get('/api/record/'+record_id).success(function(data) {
+        $scope.record = data;
+    });
   }]);
+
+
