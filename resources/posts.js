@@ -16,26 +16,41 @@ module.exports = function(app) {
   });
 
   app.post('/api/posts/:id', auth.ensureAuthenticated, function (req,res) {
-    Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
-      if (req.body.processed === true) {
-        app.mailer.send('emails/processed', {
-          to: req.body.email,
-          subject: 'Your case update',
-          post: post
-        }, function (err) {
-          if (err) { console.log(err); return }
-        });
-      }
-      else {
-        app.mailer.send('emails/notProcessed', {
-          to: req.body.email,
-          subject: 'Your case update',
-          post: post
-        }, function (err) {
-          if (err) { console.log(err); return }
-        });
-      }
-      res.send(post);
+    Post.findById(req.params.id, function(err, post) {
+      post.whyNotProcessed = req.body.whyNotProcessed;
+      post.detective = req.body.detective;
+      post.caseNumber = req.body.caseNumber;
+      post.suspectType = req.body.suspectType;
+      post.processed = req.body.processed;
+      post.policeDropboxLink = req.body.policeDropboxLink;
+      post.myNotes = req.body.myNotes;
+      post.policeNotes = req.body.policeNotes;
+      post.expectedDate = req.body.expectedDate;
+      post.save(function(err) {
+        console.log('this is the post', post);
+        console.log('this is the err', err);
+        if (post) {
+          if (req.body.processed === true) {
+            app.mailer.send('emails/processed', {
+              to: req.body.email,
+              subject: 'Your case update',
+              post: post
+            }, function (err) {
+              if (err) { console.log(err); return }
+            });
+          }
+          else {
+            app.mailer.send('emails/notProcessed', {
+              to: req.body.email,
+              subject: 'Your case update',
+              post: post
+            }, function (err) {
+              if (err) { console.log(err); return }
+            });
+          }
+        }
+        res.send(post);
+      });
     });
   });
 
