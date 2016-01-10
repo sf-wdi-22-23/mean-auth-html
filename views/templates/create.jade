@@ -46,6 +46,7 @@ html
               p.pvl.man Date of Assessment will be recorded as {{currentDate}}.
               
             button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
-            a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm') Back
+            a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm', ng-show='!showSuccess') Back
             h4(ng-show='showSuccess') This case has been sent to the investigator.
             button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-show='showSuccess', ng-click='anotherCase()') Add another case
+            a.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-show='showSuccess && currentUser.admin', href='/records') View All Records

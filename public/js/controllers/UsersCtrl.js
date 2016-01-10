@@ -10,6 +10,7 @@ angular.module('basic-auth')
 
     $scope.showForm = true;
     $scope.currentDate = new Date().toString();
+    $scope.showSuccess = false;
 
     $scope.createPost = function() {
     	$http.post('/api/posts', $scope.post)
@@ -24,7 +25,7 @@ angular.module('basic-auth')
     $scope.anotherCase = function() {
         $scope.showForm = true;
         $scope.showSuccess = false;
-        $scope.posts = {};
+        $scope.post = {};
     };
   }])
 
