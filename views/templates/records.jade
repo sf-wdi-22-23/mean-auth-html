@@ -2,17 +2,17 @@ html
   body
     table.table
       tr
-        th
+        th.h4.bold
           | Name
-        th
+        th.h4.bold
           | Email
-        th
+        th.h4.bold
           | Opt-in for Notifications
-        th
+        th.h4.bold
           | Notes
       tr(ng-repeat='(index, post) in posts')
         td
-          a(ng-href='/records/{{post._id}}/edit') {{post.name}}
+          a.h3(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}
         td {{post.optin}}
         td {{post.notes}}
