@@ -46,7 +46,7 @@ html
                   input.form-control(type='text', ng-model='user.badge')
                 button.btn.btn-info(type='submit', ng-click='signup()') Sign Up
           li(ng-show='currentUser')
-            a.btn.btn-default(href='/create')
+            a.btn.btn-link(href='/create')
               | + add new record
           li.dropdown(ng-show='currentUser')
             a.dropdown-toggle(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
