@@ -43,6 +43,10 @@ a {
 .btn{
   border:none;
 }
+
+.btn-primary{
+  background-color:#329932;
+}
 .btn-info{
   border: solid;
   color: #000;
@@ -58,7 +62,7 @@ a {
 
 }
 .btn-primary:hover {
-  background-color: #329932;
+  background-color: #198c19;
   background-image:none;
   border:none;
 }
