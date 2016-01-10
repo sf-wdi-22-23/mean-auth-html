@@ -28,13 +28,13 @@ html
                 textarea.form-control(ng-model='post.notes')
               button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='showForm=false', ng-show='showForm') Review
             div(ng-hide='showForm')
-              h3.pvm Victim's Name: {{post.name}}
-              p.pvs Did the victim opt-in for notifications?
-              p.pvs {{post.optin}}
-              p.pvs Email: {{post.email}}
-              p.pvs Dropbox Link: {{post.dropboxLink}}
-              p.pvs Nurse's Notes: {{post.notes}}
-              p.pvs Date of Assessment will be recorded as {{currentDate}}.
+              p.bold.bold.pvs Victim Name: {{post.name}}
+              p.bold.pvs Did the victim opt-in for notifications?
+              p.bold.pvs {{post.optin}}
+              p.bold.pvs Email: {{post.email}}
+              p.bold.pvs Dropbox Link: {{post.dropboxLink}}
+              p.bold.pvs Nurse's Notes: {{post.notes}}
+              p.bold.pvs Date of Assessment will be recorded as {{currentDate}}.
               
             button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
             a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm') Back
