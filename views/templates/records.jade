@@ -1,5 +1,9 @@
 html
   body
+    .form-inline
+      .form-group
+        label(for="searchBox") Search
+        input.form-control#searchBox(ng-model="searchText")
     table.table
       tr
         th.h4.bold
@@ -10,7 +14,7 @@ html
           | Opt-in
         th.h4.bold
           | Notes
-      tr(ng-repeat='(index, post) in posts')
+      tr(ng-repeat='(index, post) in posts | filter:searchText')
         td
           a.h3(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}
