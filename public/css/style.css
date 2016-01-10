@@ -71,9 +71,23 @@ a {
   height:48px;
   font-size:17px;
 }
+.records-table th {
+  cursor: pointer;
+}
 .sortorder:after {
-  content: '\25b2';
+  content: "\f107"; 
+  font-family: FontAwesome;
 }
 .sortorder.reverse:after {
-  content: '\25bc';
+  content: "\f106"; 
+  font-family: FontAwesome;
 }
+.records-table th:hover .sortorderoff:after {
+  content: "\f107"; 
+  font-family: FontAwesome;
+  opacity: 0.5;
+  position: absolute;
+  margin-left: 5px;
+}
+
+
