@@ -17,7 +17,7 @@ module.exports = function(app) {
 
   app.post('/api/posts/:id', auth.ensureAuthenticated, function (req,res) {
     Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
-      if (req.body.processed == 'true') {
+      if (req.body.processed === true) {
         app.mailer.send('emails/processed', {
           to: req.body.email,
           subject: 'Your case update',
@@ -43,7 +43,6 @@ module.exports = function(app) {
     User.findById(req.userId).exec(function(err, user) {
       var post = new Post(req.body);
       post.save(function(err, post) {
-
         if (req.body.email) {
           app.mailer.send('emails/welcome', {
             to: req.body.email,

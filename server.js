@@ -33,13 +33,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 mailer.extend(app, {
-  from: 'dewintonmanor@gmail.com',
+  from: 'team.vivifi@gmail.com',
   host: 'smtp.gmail.com', // hostname 
   secureConnection: true, // use SSL 
   port: 465, // port for secure SMTP 
   transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts 
   auth: {
-    user: 'dewintonmanor@gmail.com',
+    user: 'team.vivifi@gmail.com',
     pass: config.emailpass
   }
 });
