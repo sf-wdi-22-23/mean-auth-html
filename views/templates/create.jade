@@ -28,8 +28,10 @@ html
                 textarea.form-control(ng-model='post.notes')
               button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='showForm=false', ng-show='showForm') Review
             div(ng-hide='showForm')
-              p.bold.bold.pvs Victim Name: {{post.name}}
-              p.bold.pvs Did the victim opt-in for notifications?
+              p.pvs 
+                span.bold Victim Name: 
+                {{post.name}}
+              p.pvs Did the victim opt-in for notifications?
               p.bold.pvs {{post.optin}}
               p.bold.pvs Email: {{post.email}}
               p.bold.pvs Dropbox Link: {{post.dropboxLink}}
