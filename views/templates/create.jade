@@ -23,7 +23,7 @@ html
               .form-group.pvm
                 label(for='notes') Upload kit notes to Dropbox and paste the link here
                 input.form-control(type='text', ng-model='post.dropboxLink')
-              .form-group.pvm
+              .form-group.pvm(ng-hide="currentUser.admin")
                 label.text-area(for='notes') Nurse Notes
                 textarea.form-control(ng-model='post.notes')
               button.btn.btn-default.pill(ng-click='showForm=false', ng-show='showForm') Review
