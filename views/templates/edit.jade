@@ -2,41 +2,56 @@ html
   body
     .container
       .row
-        .col-sm-3
-          br
-          h4 {{user.first}} {{user.last}}
         .col-sm-9
           .page-header
-            h4 Edit Existing Case
+            h4 Victim Information
+            h3 {{post.name}}
+            p
+              span(class="label label-default", ng-if="post.optin") OPT-IN
+              span(class="label label-default", ng-if="!post.optin") OPT-OUT
+            p(ng-if="post.optin") {{post.email}}
+            p {{post.lastNotifiedAt}}
+            
           form
-            .form-group
-              label(for='title') Name
-              input.form-control(type='text', ng-model='post.name')
-            .form-group
-              label(for='email') Email
-              input.form-control(type='text', ng-model='post.email')
             .form-group
               label(for='title') Detective
               input.form-control(type='text', ng-model='post.detective')
             .form-group
-              label(for='optin') Opt-in
-              input.form-control(type='checkbox', ng-model='post.optin')
+              label(for='title') Suspect Type
+              select(class="form-control", ng-model='post.suspectType')
+                option(value="known") Known
+                option(value="unknown") Unknown
+                option(value="unknownAcquaintance") Unknown Acquaintance
             .form-group
-              label(for='') Has this Sexual Assult Kit been processed?
-              input(type='radio', ng-model='post.processed', ng-value='true')
-              |  Yes
-              input(type='radio', ng-model='post.processed', ng-value='false')
-              |  No
-            .form-group(ng-show="post.processed === false")
+              label(for='title') Case Number
+              input.form-control(type='text', ng-model='post.caseNumber')
+            .form-group
+              label(for='') Has this Sexual Assault Kit been processed?
+              .radio
+                label
+                  input(type='radio', ng-model='post.processed', ng-value='true')
+                  |  Yes
+              .radio
+                label
+                  input(type='radio', ng-model='post.processed', ng-value='false')
+                  |  No
+            .form-group(ng-show="post.processed == false")
               label(for='') Why not?
               textarea.form-control(ng-model='post.whyNotProcessed')
-            .form-group(ng-show="post.processed === true")
+            .form-group(ng-show="post.processed == true")
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate', value="{{ post.expectedDate | date: 'yyyy-MM-dd' }}" )
-            .form-group
-              label(for='notes') Notes
-              textarea.form-control(ng-model='post.notes')
-            button.btn.btn-default(ng-click='showForm=false', ng-show='showForm') Review
-            button.btn.btn-default(ng-click='editPost()') Save
-            p(ng-show='showSuccess') This case has been sent to the investigator.
-            button.btn.btn-default(ng-show='showSuccess', ng-click='anotherCase()') Add another case
+            p(ng-show='showSuccess') Case information has been updated.
+        .col-sm-3
+          h4 Nurse Notes
+          p {{post.nurseNotes}}
+          p(ng-if="post.nurseNotes == null")
+            | No notes were entered by Nurse for this record.
+          br
+          h4 Police Notes
+          textarea(class="form-control", rows="3", ng-model="post.policeNotes")
+          h4 My Notes
+          textarea(class="form-control", rows="3", ng-model="post.myNotes")
+      .row
+        .col-sm-12(class="text-center")
+          button.btn.btn-lg.btn-primary(ng-click='editPost()') Complete
