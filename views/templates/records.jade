@@ -14,9 +14,12 @@ html
           | Opt-In
         th.h4.bold
           | Justification
+        th.h4.bold
+          | Detective
       tr(ng-repeat='(index, post) in posts | filter:searchText')
         td
           a.h3(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}
         td {{post.optin}}
         td {{post.notes}}
+        td {{post.detective}}
