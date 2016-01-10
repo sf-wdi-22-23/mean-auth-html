@@ -12,7 +12,7 @@ var PostSchema = Schema({
   detective: String,
   processed: Boolean,
   whyNotProcessed: String,
-  expectedDate: {type:Date, default: new Date()}
+  expectedDate: Date
 });
 
 var Post = mongoose.model('Post', PostSchema);

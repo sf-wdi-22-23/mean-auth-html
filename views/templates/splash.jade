@@ -4,8 +4,6 @@ html
       .container.text-center
         h1 Vivifi
         .lead Smarter Sexual Assault Case Management
-        .btn-toolbar(ng-hide='currentUser')
-          a.btn.btn-lg.btn-info(data-toggle='modal', data-target='#login-modal') Get Started
         .btn-toolbar(ng-show='currentUser')
           a.btn.btn-lg.btn-info(href='/create') + Create new record
         .btn-toolbar(ng-show='currentUser && currentUser.admin')

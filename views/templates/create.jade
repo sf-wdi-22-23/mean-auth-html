@@ -33,6 +33,6 @@ html
               p Nurse's Notes: {{post.notes}}
               p Date of Assessment will be recorded as {{currentDate}}.
             button.btn.btn-default(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
-            a(ng-click='showForm=true', ng-hide='showForm') Back
+            a(ng-click='showForm=true', ng-hide='showForm', ng-show="!showSuccess") Back
             p(ng-show='showSuccess') This case has been sent to the investigator.
             button.btn.btn-default(ng-show='showSuccess', ng-click='anotherCase()') Add another case
