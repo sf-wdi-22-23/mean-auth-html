@@ -30,6 +30,9 @@ html
         td
           a.h4.plxl(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}
-        td {{post.optin}}
+        td(ng-if="post.optin")
+          | yes
+        td(ng-if="!post.optin")
+          | no
         td {{post.notes}}
         td {{post.detective}}
