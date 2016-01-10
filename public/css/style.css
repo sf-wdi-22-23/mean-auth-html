@@ -66,3 +66,8 @@ a {
   background-image:none;
   border:none;
 }
+
+.form-control{
+  height:48px;
+  font-size:17px;
+}
