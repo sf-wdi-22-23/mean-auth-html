@@ -6,7 +6,7 @@ html
         .col-sm-6
           .page-header
             h2(ng-show='showForm')
-              | Create a New Record
+              | Create New Record
             h2(ng-hide='showForm')
               | Review Record
           form.h4
@@ -28,16 +28,18 @@ html
                 textarea.form-control(ng-model='post.notes')
               button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='showForm=false', ng-show='showForm') Review
             div(ng-hide='showForm')
-              p.pvs 
+              p.pvm 
                 span.bold Victim Name: 
                 {{post.name}}
-              p.pvs
+              p.mts.mbs
                 span(class="label label-default", ng-if="post.optin") OPT-IN
                 span(class="label label-default", ng-if="!post.optin") OPT-OUT
-              p.bold.pvs Email: {{post.email}}
-              p.bold.pvs Dropbox Link: {{post.dropboxLink}}
-              p.bold.pvs Nurse's Notes: {{post.notes}}
-              p.bold.pvs Date of Assessment will be recorded as {{currentDate}}.
+              p.pvm.man 
+                span.bold Email: 
+                {{post.email}}
+              p.bold.pvm.man Dropbox Link: {{post.dropboxLink}}
+              p.bold.pvm.man Nurse's Notes: {{post.notes}}
+              p.bold.pvm.man Date of Assessment will be recorded as {{currentDate}}.
               
             button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
             a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm') Back
