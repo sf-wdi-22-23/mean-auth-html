@@ -5,7 +5,10 @@ html
         h4 {{user.first}} {{user.last}}
         .col-sm-6
           .page-header
-            h2 Create a New Record
+            h2(ng-show='showForm')
+              | Create a New Record
+            h2(ng-hide='showForm')
+              | Review Record
           form.h4
             div(ng-show='showForm')
               .form-group.pvm
