@@ -25,6 +25,8 @@ module.exports = function(app) {
       post.myNotes = req.body.myNotes;
       post.policeNotes = req.body.policeNotes;
       post.expectedDate = req.body.expectedDate;
+      post.sentDate = req.body.sentDate;
+      post.labName = req.body.labName;
       
       var notifyUser = false;
       if (post.processed !== req.body.processed) {

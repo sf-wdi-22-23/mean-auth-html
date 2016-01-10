@@ -15,7 +15,8 @@ var PostSchema = Schema({
   detective: String,
   processed: Boolean,
   whyNotProcessed: String,
-  expectedDate: Date,
+  sentDate: Date,
+  labName: String,
   lastNotifiedAt: Date,
   suspectType: String,
   caseNumber: String
