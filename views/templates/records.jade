@@ -7,19 +7,19 @@ html
     table.table
       tr
         th.h4.bold(ng-click="order('name')")
-          | Name
+          u Name
           span.sortorder(ng-show="predicate === 'name'" ng-class="{reverse:reverse}")
         th.h4.bold(ng-click="order('email')")
-          | Email
+          u Email
           span.sortorder(ng-show="predicate === 'email'" ng-class="{reverse:reverse}")
         th.h4.bold(ng-click="order('optin')")
-          | Opt-In
+          u Opt-In
           span.sortorder(ng-show="predicate === 'optin'" ng-class="{reverse:reverse}")
         th.h4.bold(ng-click="order('notes')")
-          | Justification
+          u Justification
           span.sortorder(ng-show="predicate === 'notes'" ng-class="{reverse:reverse}")
         th.h4.bold(ng-click="order('detective')")
-          | Detective
+          u Detective
           span.sortorder(ng-show="predicate === 'detective'" ng-class="{reverse:reverse}")
       tr(ng-repeat='(index, post) in posts | filter:searchText | orderBy:predicate:reverse')
         td
