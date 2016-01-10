@@ -43,9 +43,13 @@
             <div class="form-group">
               <label for="type">Are you a...?</label>
               <select class="form-control" ng-model="user.admin">
-                <option ng-value=false>SANE Nurse</option>
-                <option ng-value=true>Investigator</option>
+                <option ng-value="false">SANE Nurse</option>
+                <option ng-value="true">Investigator</option>
               </select>
+            </div>
+            <div class="form-group" ng-show="user.admin === 'true'">
+              <label for="badge">Badge No.</label>
+              <input type="text" ng-model="user.badge" class="form-control">
             </div>
             <button type="submit" ng-click="signup()" class="btn btn-info">Sign Up</button>
           </form>

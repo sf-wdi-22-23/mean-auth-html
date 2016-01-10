@@ -15,6 +15,7 @@ var UserSchema = new Schema({
   , first         : { type: String, trim: true }
   , last          : { type: String, trim: true }
   , admin         : { type: Boolean, default: false }
+  , badge         : { type: Number }
 })
 
 UserSchema.virtual('fullname').get(function() {
