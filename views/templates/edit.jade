@@ -41,7 +41,6 @@ html
             .form-group(ng-show="post.processed")
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate')
-            button.btn.btn-default(ng-click='editPost()') Complete
             p(ng-show='showSuccess') Case information has been updated.
         .col-sm-3
           h4 Nurse Notes
@@ -53,3 +52,6 @@ html
           textarea(class="form-control", rows="3", ng-model="post.policeNotes")
           h4 My Notes
           textarea(class="form-control", rows="3", ng-model="post.myNotes")
+      .row
+        .col-sm-12(class="text-center")
+          button.btn.btn-lg.btn-primary(ng-click='editPost()') Complete
