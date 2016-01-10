@@ -42,7 +42,7 @@ html
             .form-group(ng-show="post.processed == true")
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate', value="{{ post.expectedDate | date: 'yyyy-MM-dd' }}" )
-            p(ng-show='showSuccess') Case information has been updated.
+            p(ng-show='showSuccess') Record information has been updated.
         .col-sm-3
           h4.mtxl Nurse Notes
           p {{post.nurseNotes}}
