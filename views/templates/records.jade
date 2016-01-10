@@ -6,15 +6,19 @@ html
         input.form-control#searchBox(ng-model="searchText")
     table.table
       tr
-        th.h4.bold
+        th.h4.bold(ng-click="order('name')")
           | Name
-        th.h4.bold
+          span.sortorder(ng-show="predicate === 'name'" ng-class="{reverse:reverse}")
+        th.h4.bold(ng-click="order('email')")
           | Email
-        th.h4.bold
+          span.sortorder(ng-show="predicate === 'email'" ng-class="{reverse:reverse}")
+        th.h4.bold(ng-click="order('optin')")
           | Opt-In
-        th.h4.bold
+          span.sortorder(ng-show="predicate === 'optin'" ng-class="{reverse:reverse}")
+        th.h4.bold(ng-click="order('notes')")
           | Justification
-      tr(ng-repeat='(index, post) in posts | filter:searchText')
+          span.sortorder(ng-show="predicate === 'notes'" ng-class="{reverse:reverse}")
+      tr(ng-repeat='(index, post) in posts | filter:searchText | orderBy:predicate:reverse')
         td
           a.h3(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}

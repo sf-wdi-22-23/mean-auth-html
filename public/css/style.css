@@ -71,3 +71,9 @@ a {
   height:48px;
   font-size:17px;
 }
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
+}
