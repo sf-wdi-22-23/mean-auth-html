@@ -21,15 +21,19 @@ module.exports = function(app) {
       post.detective = req.body.detective;
       post.caseNumber = req.body.caseNumber;
       post.suspectType = req.body.suspectType;
-      post.processed = req.body.processed;
       post.policeDropboxLink = req.body.policeDropboxLink;
       post.myNotes = req.body.myNotes;
       post.policeNotes = req.body.policeNotes;
       post.expectedDate = req.body.expectedDate;
+      
+      var notifyUser = false;
+      if (post.processed !== req.body.processed) {
+        notifyUser = true;
+        post.processed = req.body.processed;
+      }
+
       post.save(function(err) {
-        console.log('this is the post', post);
-        console.log('this is the err', err);
-        if (post) {
+        if (post && notifyUser) {
           if (req.body.processed === true) {
             app.mailer.send('emails/processed', {
               to: req.body.email,
