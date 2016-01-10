@@ -39,3 +39,30 @@ a {
 .bold {
   font-weight:bold;
 }
+
+.btn{
+  border:none;
+}
+
+.btn-primary{
+  background-color:#329932;
+}
+.btn-info{
+  border: solid;
+  color: #000;
+  border-width:thin;
+  border-color:#c5c5c5;
+  background-image:none;
+  background-color:#fff;
+}
+.btn-info:hover{
+  background-color:#c5c5c5;
+  background-image: none;
+  border-color:#c5c5c5;
+
+}
+.btn-primary:hover {
+  background-color: #198c19;
+  background-image:none;
+  border:none;
+}

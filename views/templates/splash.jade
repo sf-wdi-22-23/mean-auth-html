@@ -2,12 +2,12 @@ html
   body
     .jumbotron
       .container.text-center
-        h1 Vivifi
-        .lead Smarter Sexual Assault Case Management
+        h1.bold Vivifi
+          .lead.mbxl Smarter Sexual Assault Case Management
         .btn-toolbar(ng-show='currentUser')
-          a.btn.btn-lg.btn-info(href='/create') + Create new record
+          a.btn.btn-primary.btn-lg.phxl.mrm.bg-gray(href='/create') + Create New Record
         .btn-toolbar(ng-show='currentUser && currentUser.admin')
-          a.btn.btn-lg.btn-info(href='/records') View all the records
+          a.btn.btn-primary.btn-lg.phxl.bg-gray(href='/records') View All The Records
     .container
       .row
         .col-sm-4
