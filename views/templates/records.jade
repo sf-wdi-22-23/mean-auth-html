@@ -1,0 +1,18 @@
+html
+  body
+    table.table
+      tr
+        th
+          | Name
+        th
+          | Email
+        th
+          | Opt-in for Notifications
+        th
+          | Notes
+      tr(ng-repeat='(index, post) in posts')
+        td
+          a(ng-href='/records/{{post._id}}/edit') {{post.name}}
+        td {{post.email}}
+        td {{post.optin}}
+        td {{post.notes}}

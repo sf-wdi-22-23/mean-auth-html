@@ -1,0 +1,42 @@
+html
+  body
+    .container
+      .row
+        .col-sm-3
+          br
+          h4 {{user.first}} {{user.last}}
+        .col-sm-9
+          .page-header
+            h4 Edit Existing Case
+          form
+            .form-group
+              label(for='title') Name
+              input.form-control(type='text', ng-model='post.name')
+            .form-group
+              label(for='email') Email
+              input.form-control(type='text', ng-model='post.email')
+            .form-group
+              label(for='title') Detective
+              input.form-control(type='text', ng-model='post.detective')
+            .form-group
+              label(for='optin') Opt-in
+              input.form-control(type='checkbox', ng-model='post.optin')
+            .form-group
+              label(for='') Has this Sexual Assult Kit been processed?
+              input(type='radio', ng-model='post.processed', ng-value='true')
+              |  Yes
+              input(type='radio', ng-model='post.processed', ng-value='false')
+              |  No
+            .form-group(ng-show="post.processed === 'false'")
+              label(for='') Why not?
+              textarea.form-control(ng-model='post.whyNotProcessed')
+            .form-group(ng-show="post.processed === 'true'")
+              label(for='') Expected return date
+              input.form-control(type='date', ng-model='post.expectedDate')
+            .form-group
+              label(for='notes') Notes
+              textarea.form-control(ng-model='post.notes')
+            button.btn.btn-default(ng-click='showForm=false', ng-show='showForm') Review
+            button.btn.btn-default(ng-click='editPost()') Save
+            p(ng-show='showSuccess') This case has been sent to the investigator.
+            button.btn.btn-default(ng-show='showSuccess', ng-click='anotherCase()') Add another case

@@ -1,0 +1,20 @@
+html
+  body
+    .jumbotron
+      .container.text-center
+        h1 Make Better Apps
+        .lead The Easiest Way to Authenticate
+        .btn-toolbar(ng-hide='currentUser')
+          a.btn.btn-lg.btn-info(data-toggle='modal', data-target='#login-modal') Get Started
+        .btn-toolbar(ng-show='currentUser')
+          a.btn.btn-lg.btn-info(href='/create') + Create new record
+        .btn-toolbar(ng-show='currentUser && currentUser.admin')
+          a.btn.btn-lg.btn-info(href='/records') View all the records
+    .container
+      .row
+        .col-sm-4
+          h3 Powered by Angular
+        .col-sm-4
+          h3 Powered by MongoDB
+        .col-sm-4
+          h3 And Bootstrap can come too...

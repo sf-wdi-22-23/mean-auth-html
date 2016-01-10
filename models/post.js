@@ -8,7 +8,11 @@ var PostSchema = Schema({
   optin: {type: Boolean, default: false},
   notes: String,
   createdAt: Date,
-  dropboxLink: String
+  dropboxLink: String,
+  detective: String,
+  processed: Boolean,
+  whyNotProcessed: String,
+  expectedDate: Date
 });
 
 var Post = mongoose.model('Post', PostSchema);

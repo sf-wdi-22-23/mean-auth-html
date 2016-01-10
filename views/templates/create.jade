@@ -1,0 +1,40 @@
+html
+  body
+    .container
+      .row
+        .col-sm-3
+          br
+          h4 {{user.first}} {{user.last}}
+        .col-sm-9
+          .page-header
+            h4 Add a New Case
+          form
+            div(ng-show='showForm')
+              .form-group
+                label(for='title') Name of the victim
+                input.form-control(type='text', ng-model='post.name')
+              .form-group
+                label(for='optin') Does the victim want to be notified?
+                input.form-control(type='checkbox', ng-model='post.optin')
+              .form-group(ng-show='post.optin')
+                label(for='email') Email
+                input.form-control(type='text', ng-model='post.email')
+              .form-group
+                label(for='notes') Upload kit notes to Dropbox and paste the link here
+                input.form-control(type='text', ng-model='post.dropboxLink')
+              .form-group
+                label.text-area(for='notes') Nurse Notes
+                textarea.form-control(ng-model='post.notes')
+              button.btn.btn-default(ng-click='showForm=false', ng-show='showForm') Review
+            div(ng-hide='showForm')
+              h3 Victim's Name: {{post.name}}
+              p Did the victim opt-in for notifications?
+              p {{post.optin}}
+              p Email: {{post.email}}
+              p Dropbox Link: {{post.dropboxLink}}
+              p Nurse's Notes: {{post.notes}}
+              p Date of Assessment will be recorded as {{currentDate}}.
+            button.btn.btn-default(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Save
+            a(ng-click='showForm=true', ng-hide='showForm') Back
+            p(ng-show='showSuccess') This case has been sent to the investigator.
+            button.btn.btn-default(ng-show='showSuccess', ng-click='anotherCase()') Add another case

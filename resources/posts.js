@@ -17,6 +17,24 @@ module.exports = function(app) {
 
   app.post('/api/posts/:id', auth.ensureAuthenticated, function (req,res) {
     Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
+      if (req.body.processed == 'true') {
+        app.mailer.send('emails/processed', {
+          to: req.body.email,
+          subject: 'Your case update',
+          post: post
+        }, function (err) {
+          if (err) { console.log(err); return }
+        });
+      }
+      else {
+        app.mailer.send('emails/notProcessed', {
+          to: req.body.email,
+          subject: 'Your case update',
+          post: post
+        }, function (err) {
+          if (err) { console.log(err); return }
+        });
+      }
       res.send(post);
     });
   });
@@ -25,6 +43,15 @@ module.exports = function(app) {
     User.findById(req.userId).exec(function(err, user) {
       var post = new Post(req.body);
       post.save(function(err, post) {
+
+        if (req.body.email) {
+          app.mailer.send('emails/welcome', {
+            to: req.body.email,
+            subject: 'Your case has begun'
+          }, function (err) {
+            if (err) { console.log(err); return }
+          });
+        };
         res.send(post);
       });
     });
