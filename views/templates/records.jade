@@ -1,9 +1,9 @@
 html
   body
-    .form-inline
+    .form-inline.mhxl.mvm.pull-right
       .form-group
-        label(for="searchBox") Search
-        input.form-control#searchBox(ng-model="searchText")
+        label(for="searchBox")
+        input.form-control#searchBox(ng-model="searchText",placeholder="Search Name or Case #")
     table.table
       tr
         th.h4.bold(ng-click="order('name')")
@@ -18,9 +18,13 @@ html
         th.h4.bold(ng-click="order('notes')")
           | Justification
           span.sortorder(ng-show="predicate === 'notes'" ng-class="{reverse:reverse}")
+        th.h4.bold(ng-click="order('detective')")
+          | Detective
+          span.sortorder(ng-show="predicate === 'detective'" ng-class="{reverse:reverse}")
       tr(ng-repeat='(index, post) in posts | filter:searchText | orderBy:predicate:reverse')
         td
           a.h3(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}
         td {{post.optin}}
         td {{post.notes}}
+        td {{post.detective}}
