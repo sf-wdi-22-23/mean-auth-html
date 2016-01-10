@@ -35,10 +35,10 @@ html
                 label
                   input(type='radio', ng-model='post.processed', ng-value='false')
                   |  No
-            .form-group(ng-show="!post.processed")
+            .form-group(ng-show="post.processed == false")
               label(for='') Why not?
               textarea.form-control(ng-model='post.whyNotProcessed')
-            .form-group(ng-show="post.processed")
+            .form-group(ng-show="post.processed == true")
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate')
             p(ng-show='showSuccess') Case information has been updated.
