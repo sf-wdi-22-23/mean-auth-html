@@ -1,13 +1,13 @@
 html
   body
-    .form-inline.mhxl.mvm.pull-right
+    .form-inline.mhxl.mvm
       .form-group
         label(for="searchBox")
         input.form-control#searchBox(ng-model="searchText",placeholder="Search Name or Case #")
     table.table
       tr
         th.h4.bold(ng-click="order('name')")
-          u Name
+          u.plxl Name
           span.sortorder(ng-show="predicate === 'name'" ng-class="{reverse:reverse}")
         th.h4.bold(ng-click="order('email')")
           u Email
@@ -23,7 +23,7 @@ html
           span.sortorder(ng-show="predicate === 'detective'" ng-class="{reverse:reverse}")
       tr(ng-repeat='(index, post) in posts | filter:searchText | orderBy:predicate:reverse')
         td
-          a.h3(ng-href='/records/{{post._id}}/edit') {{post.name}}
+          a.h4.plxl(ng-href='/records/{{post._id}}/edit') {{post.name}}
         td {{post.email}}
         td {{post.optin}}
         td {{post.notes}}
