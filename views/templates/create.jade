@@ -48,5 +48,5 @@ html
             button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
             a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm', ng-show='!showSuccess') Back
             h4(ng-show='showSuccess') This record has been sent to the investigator.
-            button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-show='showSuccess', ng-click='anotherCase()') + Add Another Record
+            button.btn.btn-primary.btn-lg.phxl.mtm.mrs.bg-gray(ng-show='showSuccess', ng-click='anotherCase()') + Add Another Record
             a.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-show='showSuccess && currentUser.admin', href='/records') View All Records
