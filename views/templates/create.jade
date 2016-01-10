@@ -35,6 +35,7 @@ html
               p.pvs Dropbox Link: {{post.dropboxLink}}
               p.pvs Nurse's Notes: {{post.notes}}
               p.pvs Date of Assessment will be recorded as {{currentDate}}.
+              
             button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
             a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm') Back
             h4(ng-show='showSuccess') This case has been sent to the investigator.
