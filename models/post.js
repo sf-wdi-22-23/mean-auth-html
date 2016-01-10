@@ -7,6 +7,8 @@ var PostSchema = Schema({
   email   : String,
   optin: {type: Boolean, default: false},
   nurseNotes: String,
+  policeNotes: String,
+  myNotes: String,
   createdAt: Date,
   dropboxLink: String,
   detective: String,

@@ -2,9 +2,6 @@ html
   body
     .container
       .row
-        .col-sm-3
-          br
-          h4 {{user.first}} {{user.last}}
         .col-sm-9
           .page-header
             h4 Victim Information
@@ -44,7 +41,15 @@ html
             .form-group(ng-show="post.processed")
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate')
-
             button.btn.btn-default(ng-click='editPost()') Complete
-
             p(ng-show='showSuccess') Case information has been updated.
+        .col-sm-3
+          h4 Nurse Notes
+          p {{post.nurseNotes}}
+          p(ng-if="post.nurseNotes == null")
+            | No notes were entered by Nurse for this record.
+          br
+          h4 Police Notes
+          textarea(class="form-control", rows="3", ng-model="post.policeNotes")
+          h4 My Notes
+          textarea(class="form-control", rows="3", ng-model="post.myNotes")
