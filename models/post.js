@@ -6,13 +6,16 @@ var PostSchema = Schema({
   name  : String,
   email   : String,
   optin: {type: Boolean, default: false},
-  notes: String,
+  nurseNotes: String,
   createdAt: Date,
   dropboxLink: String,
   detective: String,
   processed: Boolean,
   whyNotProcessed: String,
-  expectedDate: {type:Date, default: new Date()}
+  expectedDate: Date,
+  lastNotifiedAt: Date,
+  suspectType: String,
+  caseNumber: String
 });
 
 var Post = mongoose.model('Post', PostSchema);
