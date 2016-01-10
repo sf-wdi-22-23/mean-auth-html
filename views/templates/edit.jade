@@ -40,12 +40,6 @@ html
               label(for='') Why not?
               textarea.form-control(ng-model='post.whyNotProcessed')
             .form-group(ng-show="post.processed == true")
-              label(for='') Kit Sent Date
-              input.form-control(type='date', ng-model='post.sentDate', value="{{ post.sentDate | date: 'yyyy-MM-dd' }}" )
-            .form-group(ng-show="post.processed == true")
-              label(for='') Lab Name
-              input.form-control(type='text', ng-model='post.labName', value="{{ post.labName}}" )
-            .form-group(ng-show="post.processed == true")
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate', value="{{ post.expectedDate | date: 'yyyy-MM-dd' }}" )
             p(ng-show='showSuccess') Record information has been updated.

@@ -23,7 +23,7 @@ html
                 .form-group
                   label(for='') Password
                   input.form-control(type='password', ng-model='user.password')
-                button.btn.btn-info(type='submit', ng-click='login()') Log In
+                button.btn.btn-primary(type='submit', ng-click='login()') Log In
           li.dropdown(ng-show='!currentUser')
             a#dropdownMenu1.dropdown-toggle(type='button', data-toggle='dropdown')
               h4
@@ -47,7 +47,7 @@ html
                 .form-group(ng-show="user.admin === 'true'")
                   label(for='badge') Badge No.
                   input.form-control(type='text', ng-model='user.badge')
-                button.btn.btn-info(type='submit', ng-click='signup()') Sign Up
+                button.btn.btn-primary(type='submit', ng-click='signup()') Sign Up
           li(ng-show='currentUser')
             a.btn.btn-link.bold(href='/create')
               | + Create a New Record

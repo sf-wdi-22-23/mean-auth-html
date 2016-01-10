@@ -55,16 +55,20 @@ a {
   background-image:none;
   background-color:#fff;
 }
+.btn-info:active,.btn-info:focus,
+.btn-info:active:focus,
 .btn-info:hover{
   background-color:#c5c5c5;
   background-image: none;
   border-color:#c5c5c5;
 
 }
-.btn-primary:hover {
+.btn-primary:active, .primary:focus,
+.btn-primary:active:focus,.btn-primary:hover{
   background-color: #198c19;
   background-image:none;
   border:none;
+  cursor:pointer;
 }
 
 .form-control{
@@ -75,19 +79,17 @@ a {
   cursor: pointer;
 }
 .sortorder:after {
-  content: "\f107"; 
+  content: "\f107";
   font-family: FontAwesome;
 }
 .sortorder.reverse:after {
-  content: "\f106"; 
+  content: "\f106";
   font-family: FontAwesome;
 }
 .records-table th:hover .sortorderoff:after {
-  content: "\f107"; 
+  content: "\f107";
   font-family: FontAwesome;
   opacity: 0.5;
   position: absolute;
   margin-left: 5px;
 }
-
-
