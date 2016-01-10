@@ -7,13 +7,14 @@ html
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        h2.mts
+        h2.mtm
           a.bold.plxl(href='/') Vivifi
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right
           li.dropdown(ng-show='!currentUser')
             a#dropdownMenu1.dropdown-toggle(type='button', data-toggle='dropdown')
-              | Login
+              h4.bold
+                | Login
             .dropdown-menu.dropdown-form
               form
                 .form-group
@@ -25,7 +26,8 @@ html
                 button.btn.btn-info(type='submit', ng-click='login()') Log In
           li.dropdown(ng-show='!currentUser')
             a#dropdownMenu1.dropdown-toggle(type='button', data-toggle='dropdown')
-              | Sign Up
+              h4
+                | Sign Up
             .dropdown-menu.dropdown-form(style='padding:17px;')
               form
                 .form-group
