@@ -31,8 +31,9 @@ html
               p.pvs 
                 span.bold Victim Name: 
                 {{post.name}}
-              p.pvs Did the victim opt-in for notifications?
-              p.bold.pvs {{post.optin}}
+              p.pvs
+                span(class="label label-default", ng-if="post.optin") OPT-IN
+                span(class="label label-default", ng-if="!post.optin") OPT-OUT
               p.bold.pvs Email: {{post.email}}
               p.bold.pvs Dropbox Link: {{post.dropboxLink}}
               p.bold.pvs Nurse's Notes: {{post.notes}}
