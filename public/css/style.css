@@ -31,3 +31,8 @@ a {
   padding: 17px;
   width: 300px;
 }
+.bg-gray {
+  background-color:#404242;
+  background-image:none;
+
+}

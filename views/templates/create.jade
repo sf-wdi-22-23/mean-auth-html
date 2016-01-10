@@ -26,7 +26,7 @@ html
               .form-group.pvm
                 label.text-area(for='notes') Nurse Notes
                 textarea.form-control(ng-model='post.notes')
-              button.btn.btn-default.pill(ng-click='showForm=false', ng-show='showForm') Review
+              button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='showForm=false', ng-show='showForm') Review
             div(ng-hide='showForm')
               h3.pvm Victim's Name: {{post.name}}
               p.pvs Did the victim opt-in for notifications?
@@ -35,7 +35,7 @@ html
               p.pvs Dropbox Link: {{post.dropboxLink}}
               p.pvs Nurse's Notes: {{post.notes}}
               p.pvs Date of Assessment will be recorded as {{currentDate}}.
-            button.btn.btn-default(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
-            a(ng-click='showForm=true', ng-hide='showForm') Back
-            p(ng-show='showSuccess') This case has been sent to the investigator.
-            button.btn.btn-default(ng-show='showSuccess', ng-click='anotherCase()') Add another case
+            button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
+            a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm') Back
+            h4(ng-show='showSuccess') This case has been sent to the investigator.
+            button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-show='showSuccess', ng-click='anotherCase()') Add another case
