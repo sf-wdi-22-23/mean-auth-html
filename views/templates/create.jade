@@ -5,33 +5,33 @@ html
         h4 {{user.first}} {{user.last}}
         .col-sm-6
           .page-header
-            h4 Add a New Case
-          form
+            h2 Create a New Record
+          form.h4
             div(ng-show='showForm')
-              .form-group
+              .form-group.pvm
                 label(for='title') Victim Name
                 input.form-control(type='text', ng-model='post.name')
-              .form-group
-                label(for='optin') Does the victim want to be notified?
+              .form-group.pvm
+                label.prm(for='optin') Does the victim want to be notified?
                 input(type='checkbox', ng-model='post.optin')
-              .form-group(ng-show='post.optin')
+              .form-group.pvm(ng-show='post.optin')
                 label(for='email') Email
                 input.form-control(type='text', ng-model='post.email')
-              .form-group
+              .form-group.pvm
                 label(for='notes') Upload kit notes to Dropbox and paste the link here
                 input.form-control(type='text', ng-model='post.dropboxLink')
-              .form-group
+              .form-group.pvm
                 label.text-area(for='notes') Nurse Notes
                 textarea.form-control(ng-model='post.notes')
-              button.btn.btn-default(ng-click='showForm=false', ng-show='showForm') Review
+              button.btn.btn-default.pill(ng-click='showForm=false', ng-show='showForm') Review
             div(ng-hide='showForm')
-              h3 Victim's Name: {{post.name}}
-              p Did the victim opt-in for notifications?
-              p {{post.optin}}
-              p Email: {{post.email}}
-              p Dropbox Link: {{post.dropboxLink}}
-              p Nurse's Notes: {{post.notes}}
-              p Date of Assessment will be recorded as {{currentDate}}.
+              h3.pvm Victim's Name: {{post.name}}
+              p.pvs Did the victim opt-in for notifications?
+              p.pvs {{post.optin}}
+              p.pvs Email: {{post.email}}
+              p.pvs Dropbox Link: {{post.dropboxLink}}
+              p.pvs Nurse's Notes: {{post.notes}}
+              p.pvs Date of Assessment will be recorded as {{currentDate}}.
             button.btn.btn-default(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
             a(ng-click='showForm=true', ng-hide='showForm') Back
             p(ng-show='showSuccess') This case has been sent to the investigator.
