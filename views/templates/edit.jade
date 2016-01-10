@@ -4,30 +4,30 @@ html
       .row
         .col-sm-9
           .page-header
-            h4 Victim Information
-            h3 {{post.name}}
+            h3.bold Victim Information
+            h2 {{post.name}}
             p
               span(class="label label-default", ng-if="post.optin") OPT-IN
-              span(class="label label-default", ng-if="!post.optin") OPT-OUT
+              span.pas(class="label label-default", ng-if="!post.optin") OPT-OUT
             p(ng-if="post.optin") {{post.email}}
             p {{post.lastNotifiedAt}}
             
           form
             .form-group
-              label(for='title') Detective
+              label.h4(for='title') Detective
               input.form-control(type='text', ng-model='post.detective')
             .form-group
-              label(for='title') Suspect Type
+              label.h4(for='title') Suspect Type
               select(class="form-control", ng-model='post.suspectType')
                 option(value="known") Known
                 option(value="unknown") Unknown
                 option(value="stranger") Stranger
                 option(value="unknownAcquaintance") Unknown Acquaintance
             .form-group
-              label(for='title') Case Number
+              label.h4(for='title') Case Number
               input.form-control(type='text', ng-model='post.caseNumber')
             .form-group
-              label(for='') Has this Sexual Assault Kit been processed?
+              label.h4(for='') Has this Sexual Assault Kit been processed?
               .radio
                 label
                   input(type='radio', ng-model='post.processed', ng-value='true')
@@ -44,15 +44,15 @@ html
               input.form-control(type='date', ng-model='post.expectedDate', value="{{ post.expectedDate | date: 'yyyy-MM-dd' }}" )
             p(ng-show='showSuccess') Case information has been updated.
         .col-sm-3
-          h4 Nurse Notes
+          h4.mtxl Nurse Notes
           p {{post.nurseNotes}}
           p(ng-if="post.nurseNotes == null")
             | No notes were entered by Nurse for this record.
-          h4 Police Notes
+          h4.mtl Police Notes
           textarea(class="form-control", rows="3", ng-model="post.policeNotes")
-          h4 My Notes
+          h4.mtl My Notes
           textarea(class="form-control", rows="3", ng-model="post.myNotes")
-          h4 Attachments
+          h4.mtxl Attachments
           a(href="{{post.dropboxLink}}") Download Nurses Attachments
           .form-group.pvm
             label(for='') Upload more attachments to Dropbox and paste the link here
@@ -60,4 +60,4 @@ html
 
       .row
         .col-sm-12(class="text-center")
-          button.btn.btn-lg.btn-primary(ng-click='editPost()') Complete
+          button.btn.btn-lg.btn-primary.mvxl.bg-gray(ng-click='editPost()') Complete All
