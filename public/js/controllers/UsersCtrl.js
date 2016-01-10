@@ -47,6 +47,7 @@ angular.module('basic-auth')
 
     $scope.editPost = function() {
         delete $scope.post._id;
+        $scope.post.policeDropboxLinks.push($scope.post.newDropboxLink);
         $http.post('/api/posts/'+record_id, $scope.post).success(function(data) {
             $location.url('/records');
         });

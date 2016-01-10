@@ -11,7 +11,7 @@ var PostSchema = Schema({
   myNotes: String,
   createdAt: Date,
   dropboxLink: String,
-  policeDropboxLink: String,
+  policeDropboxLinks: [],
   detective: String,
   processed: Boolean,
   whyNotProcessed: String,
