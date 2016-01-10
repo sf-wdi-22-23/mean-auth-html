@@ -56,7 +56,9 @@ html
           a(href="{{post.dropboxLink}}") Download Nurses Attachments
           .form-group.pvm
             label(for='') Upload more attachments to Dropbox and paste the link here
-            input.form-control(type='text', ng-model='post.policeDropboxLink', placeholder="http://dropbox.com/...")
+            .pvm(ng-repeat="link in post.policeDropboxLinks")
+              a(href="{{link}}") {{link}}
+            input.form-control(type='text', ng-model='post.newDropboxLink', placeholder="http://dropbox.com/...")
 
       .row
         .col-sm-12(class="text-center")
