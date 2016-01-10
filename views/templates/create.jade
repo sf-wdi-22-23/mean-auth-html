@@ -13,7 +13,7 @@ html
                 input.form-control(type='text', ng-model='post.name')
               .form-group
                 label(for='optin') Does the victim want to be notified?
-                input.form-control(type='checkbox', ng-model='post.optin')
+                input(type='checkbox', ng-model='post.optin')
               .form-group(ng-show='post.optin')
                 label(for='email') Email
                 input.form-control(type='text', ng-model='post.email')
