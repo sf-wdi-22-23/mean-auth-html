@@ -19,7 +19,8 @@ var PostSchema = Schema({
   labName: String,
   lastNotifiedAt: Date,
   suspectType: String,
-  caseNumber: String
+  caseNumber: String,
+  uploads: []
 });
 
 var Post = mongoose.model('Post', PostSchema);

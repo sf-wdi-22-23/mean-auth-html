@@ -21,8 +21,10 @@ html
                 label(for='email') Email
                 input.form-control(type='text', ng-model='post.email')
               .form-group.pvm
-                label(for='notes') Upload kit notes to Dropbox and paste the link here
-                input.form-control(type='text', ng-model='post.dropboxLink')
+                //- label(for='notes') Upload kit notes to Dropbox and paste the link here
+                //- input.form-control(type='text', ng-model='post.dropboxLink')
+                label(for='notes') Upload kit notes 
+                input(uploadcare-widget ng-model="object.image.info.uuid" data-public-key="63a0be10a06cba2566de" data-tabs="file url" data-images-only="false" data-preview-step="false" on-upload-complete="onUCUploadComplete(info)" on-widget-ready="onUCWidgetReady(widget)" data-multiple="true" value="{{object.image.info.cdnUrl}}")
               .form-group.pvm(ng-hide="currentUser.admin")
                 label.text-area(for='notes') Nurse Notes
                 textarea.form-control(ng-model='post.notes')
@@ -38,8 +40,9 @@ html
                 span.bold Email: 
                 {{post.email}}
               p.pvl.man
-                span.bold Dropbox Link: 
-                span{{post.dropboxLink}}
+                span.bold Attachments: 
+                .pvm(ng-repeat="file in post.uploads")
+                  a(href="{{file.url}}" target="_blank") {{file.name}}                
               p.pvl.man 
                 span.bold Nurse's Notes: 
                 span{{post.notes}}

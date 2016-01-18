@@ -43,6 +43,7 @@ html
               label(for='') Expected return date
               input.form-control(type='date', ng-model='post.expectedDate', value="{{ post.expectedDate | date: 'yyyy-MM-dd' }}" )
             p(ng-show='showSuccess') Record information has been updated.
+
         .col-sm-3
           h4.mtxl Nurse Notes
           p {{post.nurseNotes}}
@@ -52,13 +53,20 @@ html
           textarea(class="form-control", rows="3", ng-model="post.policeNotes")
           h4.mtl Investigator Notes
           textarea(class="form-control", rows="3", ng-model="post.myNotes")
+          
           h4.mtxl Attachments
-          a(href="{{post.dropboxLink}}") Download Nurses Attachments
-          .form-group.pvm
-            label(for='') Upload more attachments to Dropbox and paste the link here
-            .pvm(ng-repeat="link in post.policeDropboxLinks")
-              a(href="{{link}}") {{link}}
-            input.form-control(type='text', ng-model='post.newDropboxLink', placeholder="http://dropbox.com/...")
+          .pvm(ng-repeat="file in post.uploads")
+            a(href="{{file.url}}" target="_blank") {{file.name}}
+
+          input(uploadcare-widget ng-model="object.image.info.uuid" data-public-key="63a0be10a06cba2566de" data-tabs="file url" data-images-only="false" data-preview-step="false" on-upload-complete="onUCUploadComplete(info)" on-widget-ready="onUCWidgetReady(widget)" data-multiple="true" value="{{object.image.info.cdnUrl}}")
+
+          //- h4.mtxl Attachments
+          //- a(href="{{post.dropboxLink}}") Download Nurses Attachments
+          //- .form-group.pvm
+          //-   label(for='') Upload more attachments to Dropbox and paste the link here
+          //-   .pvm(ng-repeat="link in post.policeDropboxLinks")
+          //-     a(href="{{link}}") {{link}}
+          //-   input.form-control(type='text', ng-model='post.newDropboxLink', placeholder="http://dropbox.com/...")
 
       .row
         .col-sm-12(class="text-center")

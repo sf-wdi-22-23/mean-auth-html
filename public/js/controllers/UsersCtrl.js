@@ -27,6 +27,22 @@ angular.module('basic-auth')
         $scope.showSuccess = false;
         $scope.post = {};
     };
+
+    $scope.onUCUploadComplete = function(info) {
+        for (var i=0; i<info.count; i++) {
+            var url = info.cdnUrl + 'nth/' + i + '/';
+            var obj;
+            if ($scope.post.uploads) {
+                obj = {name: "File " + ($scope.post.uploads.length + 1), url: url};
+                $scope.post.uploads.push(obj);
+            }
+            else {
+                obj = {name: "File 1", url: url};
+                $scope.post.uploads = [obj]; 
+            }   
+        }
+        console.log($scope.post.uploads);
+    };
   }])
 
   .controller('EditCtrl', ['$scope', '$http', '$auth', 'Auth', '$routeParams', '$location', function($scope, $http, $auth, Auth, $routeParams, $location) {
@@ -51,6 +67,22 @@ angular.module('basic-auth')
         $http.post('/api/posts/'+record_id, $scope.post).success(function(data) {
             $location.url('/records');
         });
+    };
+
+    $scope.onUCUploadComplete = function(info) {
+        for (var i=0; i<info.count; i++) {
+            var url = info.cdnUrl + 'nth/' + i + '/';
+            var obj;
+            if ($scope.post.uploads) {
+                obj = {name: "File " + ($scope.post.uploads.length + 1), url: url};
+                $scope.post.uploads.push(obj);
+            }
+            else {
+                obj = {name: "File 1", url: url};
+                $scope.post.uploads = [obj]; 
+            }   
+        }
+        console.log($scope.post.uploads);
     };
   }])
 
