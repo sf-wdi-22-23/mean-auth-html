@@ -1,0 +1,84 @@
+html
+  body
+    nav.pvl.navbar.navbar-default
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        h2.mtm
+          a.bold.plxl(href='/') Vivifi
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown(ng-show='!currentUser')
+            a#dropdownMenu1.dropdown-toggle(type='button', data-toggle='dropdown')
+              h4.bold
+                | Login
+            .dropdown-menu.dropdown-form
+              form
+                .form-group
+                  label(for='') Email
+                  input.form-control(type='text', ng-model='user.email')
+                .form-group
+                  label(for='') Password
+                  input.form-control(type='password', ng-model='user.password')
+                button.btn.btn-primary(type='submit', ng-click='login()') Log In
+          li.dropdown(ng-show='!currentUser')
+            a#dropdownMenu1.dropdown-toggle(type='button', data-toggle='dropdown')
+              h4
+                | Sign Up
+            .dropdown-menu.dropdown-form(style='padding:17px;')
+              form
+                .form-group
+                  label(for='') Email
+                  input.form-control(type='text', ng-model='user.email')
+                .form-group
+                  label(for='') Password
+                  input.form-control(type='password', ng-model='user.password')
+                .form-group
+                  label(for='') Confirm Password
+                  input.form-control(type='password', ng-model='user.confirm')
+                .form-group
+                  label(for='type') Are you a...?
+                  select.form-control(ng-model='user.admin')
+                    option(ng-value='false') SANE Nurse
+                    option(ng-value='true') Investigator
+                .form-group(ng-show="user.admin === 'true'")
+                  label(for='badge') Badge No.
+                  input.form-control(type='text', ng-model='user.badge')
+                button.btn.btn-primary(type='submit', ng-click='signup()') Sign Up
+          li(ng-show='currentUser')
+            a.btn.btn-link.bold(href='/create')
+              | + Create a New Record
+          li(ng-show='currentUser.admin')
+            a.btn.btn-link.bold(href='/records')
+              | View All Records
+          li.dropdown(ng-show='currentUser')
+            a.dropdown-toggle(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+              span.status {{currentUser.email}}
+              span.caret
+            ul.dropdown-menu
+              li
+                a(ng-click='logout()') Logout
+        // <div class="nav navbar-nav navbar-right"><a data-toggle="modal" data-target="#login-modal" ng-hide="currentUser" class="navbar-btn btn btn-info">Get Started</a></div>
+    #login-modal.modal.fade(tabindex='-1', role='dialog')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-body
+            .alert.alert-danger(ng-show='err') {{err}}
+            form
+              .form-group
+                label(for='') Email
+                input.form-control(type='text', ng-model='user.email')
+              .form-group
+                label(for='') Password
+                input.form-control(type='password', ng-model='user.password')
+              .form-group(ng-show='signupMode')
+                label(for='') Confirm Password
+                input.form-control(type='password', ng-model='user.confirm')
+          .modal-footer
+            a.btn.btn-link(ng-click='signupMode = true', ng-hide='signupMode') Sign Up
+            button.btn.btn-info(type='submit', ng-hide='signupMode', ng-click='login()') Log In
+            a.btn.btn-link(ng-click='signupMode = false', ng-show='signupMode') Login
+            button.btn.btn-info(type='submit', ng-cloak='', ng-show='signupMode', ng-click='signup()') Sign Up

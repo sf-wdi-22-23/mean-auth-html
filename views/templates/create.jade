@@ -1,0 +1,55 @@
+html
+  body
+    .container
+      .row
+        h4 {{user.first}} {{user.last}}
+        .col-sm-6
+          .page-header
+            h2(ng-show='showForm')
+              | Create New Record
+            h2(ng-hide='showForm')
+              | Review Record
+          form.h4
+            div(ng-show='showForm')
+              .form-group.pvm
+                label(for='title') Victim Name
+                input.form-control(type='text', ng-model='post.name')
+              .form-group.pvm
+                label.prm(for='optin') Does the victim want to be notified?
+                input(type='checkbox', ng-model='post.optin')
+              .form-group.pvm(ng-show='post.optin')
+                label(for='email') Email
+                input.form-control(type='text', ng-model='post.email')
+              .form-group.pvm
+                //- label(for='notes') Upload kit notes to Dropbox and paste the link here
+                //- input.form-control(type='text', ng-model='post.dropboxLink')
+                label(for='notes') Upload kit notes 
+                input(uploadcare-widget.mls ng-model="object.image.info.uuid" data-public-key="63a0be10a06cba2566de" data-tabs="file url" data-images-only="false" data-preview-step="false" on-upload-complete="onUCUploadComplete(info)" on-widget-ready="onUCWidgetReady(widget)" data-multiple="true" value="{{object.image.info.cdnUrl}}")
+              .form-group.pvm(ng-hide="currentUser.admin")
+                label.text-area(for='notes') Nurse Notes
+                textarea.form-control(ng-model='post.notes')
+              button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='showForm=false', ng-show='showForm') Review
+            div(ng-hide='showForm')
+              p.pvl.man 
+                span.bold Victim Name: 
+                {{post.name}}
+              p.mts.mbs
+                span(class="label label-default", ng-if="post.optin") OPT-IN
+                span(class="label label-default", ng-if="!post.optin") OPT-OUT
+              p.pvl.man 
+                span.bold Email: 
+                {{post.email}}
+              p.pvl.man
+                span.bold Attachments: 
+                .pvm(ng-repeat="file in post.uploads")
+                  a(href="{{file.url}}" target="_blank") {{file.name}}                
+              p.pvl.man 
+                span.bold Nurse's Notes: 
+                span{{post.notes}}
+              p.pvl.man Date of Assessment will be recorded as {{currentDate}}.
+              
+            button.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-click='createPost()', ng-hide='showForm', ng-show='!showSuccess') Submit
+            a.btn.btn-info.btn-lg.phxl.mtm.mls(ng-click='showForm=true', ng-hide='showForm', ng-show='!showSuccess') Back
+            h4(ng-show='showSuccess') This record has been sent to the investigator.
+            button.btn.btn-primary.btn-lg.phxl.mtm.mrs.bg-gray(ng-show='showSuccess', ng-click='anotherCase()') + Add Another Record
+            a.btn.btn-primary.btn-lg.phxl.mtm.bg-gray(ng-show='showSuccess && currentUser.admin', href='/records') View All Records

@@ -4,16 +4,27 @@
 angular.module('basic-auth', ['basic-auth.services',
                               'ngRoute',
                               'ngResource',
-                              'satellizer'])
+                              'satellizer',
+                              'ng-uploadcare'])
 
     .config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
       $routeProvider.when('/', {
         templateUrl: 'templates/splash'
       });
 
-      $routeProvider.when('/profile', {
-        templateUrl: 'templates/profile',
-        controller: 'ProfileCtrl'
+      $routeProvider.when('/create', {
+        templateUrl: 'templates/create',
+        controller: 'CreateCtrl'
+      });
+
+      $routeProvider.when('/records/:id/edit', {
+        templateUrl: 'templates/edit',
+        controller: 'EditCtrl'
+      });
+
+      $routeProvider.when('/records', {
+        templateUrl: 'templates/records',
+        controller: 'RecordsCtrl'
       });
 
       $routeProvider.otherwise({redirectTo: '/'});

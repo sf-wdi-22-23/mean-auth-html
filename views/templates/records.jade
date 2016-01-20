@@ -1,0 +1,38 @@
+html
+  body
+    .form-inline.mhxl.mvm
+      .form-group
+        label(for="searchBox")
+        input.form-control#searchBox(ng-model="searchText",placeholder="Search Name or Case #")
+    table.table.records-table
+      tr
+        th.h4.bold(ng-click="order('name')")
+          .plxl Name 
+            span.sortorderoff(ng-show="predicate !== 'name'")
+            span.sortorder(ng-show="predicate === 'name'" ng-class="{reverse: reverse}")
+        th.h4.bold(ng-click="order('email')")
+          | Email 
+          span.sortorderoff(ng-show="predicate !== 'email'")
+          span.sortorder(ng-show="predicate === 'email'" ng-class="{reverse: reverse}")
+        th.h4.bold(ng-click="order('optin')")
+          | Opt-In 
+          span.sortorderoff(ng-show="predicate !== 'optin'")
+          span.sortorder(ng-show="predicate === 'optin'" ng-class="{reverse: reverse}")
+        th.h4.bold(ng-click="order('notes')")
+          | Justification 
+          span.sortorderoff(ng-show="predicate !== 'notes'")
+          span.sortorder(ng-show="predicate === 'notes'" ng-class="{reverse: reverse}")
+        th.h4.bold(ng-click="order('detective')")
+          | Detective 
+          span.sortorderoff(ng-show="predicate !== 'detective'")
+          span.sortorder(ng-show="predicate === 'detective'" ng-class="{reverse: reverse}")
+      tr(ng-repeat='(index, post) in posts | filter:searchText | orderBy:predicate:reverse')
+        td
+          a.h4.plxl(ng-href='/records/{{post._id}}/edit') {{post.name}}
+        td {{post.email}}
+        td(ng-if="post.optin")
+          | yes
+        td(ng-if="!post.optin")
+          | no
+        td {{post.notes}}
+        td {{post.detective}}

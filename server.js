@@ -16,6 +16,7 @@ var config = require('./config')
   , logger = require('morgan')
   , server = app.listen(config.port)
   , mongoose  = require('mongoose')
+  , mailer = require('express-mailer');
 
 mongoose.connect(config.db);
 
@@ -31,14 +32,33 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-var ejs = require('ejs');
-app.engine('html', ejs.renderFile); 
-app.set('view engine', 'html');
+mailer.extend(app, {
+  from: 'team.vivifi@gmail.com',
+  host: 'smtp.gmail.com', // hostname 
+  secureConnection: true, // use SSL 
+  port: 465, // port for secure SMTP 
+  transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts 
+  auth: {
+    user: 'team.vivifi@gmail.com',
+    pass: config.emailpass
+  }
+});
+
+// var ejs = require('ejs');
+// app.engine('html', ejs.renderFile); 
+// app.set('view engine', 'html');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.set('view options', {
+  layout: false
+});
 
 // RESOURCES
 app.get('/', resources.index);
 app.get('/templates/:name', resources.templates);
 require('./resources/users')(app);
+require('./resources/posts')(app);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', resources.index);

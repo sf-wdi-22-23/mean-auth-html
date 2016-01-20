@@ -10,9 +10,11 @@ var User = require('../models/user.js')
 module.exports = function(app) {
 
   app.get('/api/me', auth.ensureAuthenticated, function(req, res) {
-    User.findById(req.userId, function(err, user) {
-      res.send(user);
-    });
+    User.findOne({ _id: req.userId })
+        .exec(function(err, user) {
+          console.log(user)
+          res.send(user);
+        });
   });
 
   app.put('/api/me', auth.ensureAuthenticated, function(req, res) {
@@ -50,7 +52,9 @@ module.exports = function(app) {
       
       var user = new User({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        admin: req.body.admin,
+        badge: req.body.badge
       });
 
       user.save(function(err) {

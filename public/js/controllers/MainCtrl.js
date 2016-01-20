@@ -8,6 +8,11 @@ angular.module('basic-auth')
     // LOGIN/REGISTER
     $scope.user = {};
 
+    $scope.types = [
+      { name: 'nurse' },
+      { name: 'investigator' }
+    ];
+
     $scope.isAuthenticated = function() {
       $http.get('/api/me').then(function (data) {
         if (!!data.data) {
